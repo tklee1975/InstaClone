@@ -15,9 +15,9 @@ export default class FeedIndex extends Component {
    */
   render() {
     return (
-      <div className={CN(css.FeedIndex)}>
+      <main className={CN(css.FeedIndex)}>
 
-      </div>
+      </main>
     );
   }
 }

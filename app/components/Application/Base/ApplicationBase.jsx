@@ -1,5 +1,7 @@
-
+import css from './ApplicationBase.styl';
 import React, { Component } from 'react';
+
+import ApplicationHeader from 'Application/Header/ApplicationHeader';
 
 
 export default class ApplicationBase extends Component {
@@ -10,9 +12,10 @@ export default class ApplicationBase extends Component {
 
   render() {
     return (
-      <div>
+      <section className={css.ApplicationBase}>
+        <ApplicationHeader />
         {this.props.children}
-      </div>
+      </section>
     );
   }
 }
