@@ -1,10 +1,9 @@
 {
-  "name": "react-playground",
-  "version": "0.3.0",
-  "description": "Simple web-site on React.js",
-  "codename": "reactpg",
-  "repository": "https://github.com/LestaD/react-webpack-playground.git",
-  "main": "index.js",
+  "name": "instaclone",
+  "version": "0.1.0",
+  "description": "Instagram clone with React.JS + Baobab.JS",
+  "codename": "instaclone",
+  "repository": "LestaD/InstaClone",
   "scripts": {
     "clean": "rimraf ./build && mkdir ./build",
     "prestart": "npm install",
@@ -16,10 +15,14 @@
   "keywords": [
     "react",
     "web",
-    "site"
+    "site",
+    "insta",
+    "clone",
+    "baobab",
+    "gram"
   ],
   "author": "LestaD <i.am@lestad.net> (Sergey Sova)",
-  "license": "GPL-3.0",
+  "license": "UNLICENSED",
   "devDependencies": {
     "autoprefixer": "6.0.3",
     "babel-core": "^5.8.29",
@@ -49,6 +52,9 @@
     "template-html-loader": "0.0.3"
   },
   "dependencies": {
+    "baobab": "^2.1.0",
+    "baobab-react": "^1.0.0",
+    "react-mixin": "^3.0.0",
     "webpack": "1.12.2",
     "webpack-dev-server": "^1.12.1"
   },

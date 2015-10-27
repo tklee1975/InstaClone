@@ -5,6 +5,8 @@ import 'normalize.css/normalize.css';
 import 'index.html';
 import 'stylus/app.styl';
 
+import 'utils/decorators';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router from 'react-router';

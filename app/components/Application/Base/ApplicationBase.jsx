@@ -1,10 +1,12 @@
 import css from './ApplicationBase.styl';
 import React, { Component } from 'react';
+import { root as Root } from 'baobab-react/higher-order';
+import Tree from 'Tree';
 
 import ApplicationHeader from 'Application/Header/ApplicationHeader';
 
 
-export default class ApplicationBase extends Component {
+class ApplicationBase extends Component {
 
   static propTypes = {
     children: React.PropTypes.any
@@ -19,3 +21,6 @@ export default class ApplicationBase extends Component {
     );
   }
 }
+
+
+export default Root(ApplicationBase, Tree);
