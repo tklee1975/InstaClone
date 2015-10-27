@@ -16,7 +16,10 @@ export default class FeedIndex extends Component {
   render() {
     return (
       <main className={CN(css.FeedIndex)}>
-
+        <section className={css.FeedRoot}>
+          <div className={css.FeedList}>
+          </div>
+        </section>
       </main>
     );
   }
