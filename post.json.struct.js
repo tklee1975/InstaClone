@@ -1,4 +1,6 @@
 {
+  "posts":[
+    '{{repeat(1, 10)}}',{
     "caption": '{{lorem(9, "words")}}',
     "code": "{{objectId()}}",
     "comments": [
@@ -85,4 +87,5 @@
     "viewerFollowsOwner": true,
     "viewerIsBlockedByOwner": false,
     "viewportWidth": 1440
+}]
 }

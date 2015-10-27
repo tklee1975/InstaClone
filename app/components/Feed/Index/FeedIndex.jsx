@@ -4,6 +4,7 @@ import css from './FeedIndex.styl';
 import React, { Component } from 'react';
 
 
+
 export default class FeedIndex extends Component {
 
   componentDidMount() {
