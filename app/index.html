@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title><%= title %></title>
-  <link rel="shortcut icon" href="/favicon.ico?v=20150821">
+  <link rel="shortcut icon" href="/favicon.ico">
   <% if (process.env.NODE_ENV == 'production') { %>
-  <link rel="stylesheet" href="/css/app=<%= version %>.js" /><% } %>
+  <link rel="stylesheet" href="/css/instaclone-<%= version %>.js" /><% } %>
 </head>
 <body>
-  <div id="website"></div>
-  <script src="js/app-<%= version %>.js"></script>
+  <div id="instaclone"></div>
+  <script src="js/instaclone-<%= version %>.js"></script>
 </body>
 </html>

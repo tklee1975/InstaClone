@@ -25,7 +25,7 @@ entryPoint.push(
 );
 
 if (DEBUG) {
-  entryPoint.push('webpack-dev-server/client?http://localhost:4000');
+  entryPoint.push('webpack-dev-server/client?http://localhost:7770');
   entryPoint.push('webpack/hot/dev-server');
 }
 
@@ -103,7 +103,7 @@ switch(process.env.NODE_ENV.toLowerCase()) {
 module.exports = {
   context: path.resolve(__dirname, 'app'),
   entry: {
-    app: entryPoint
+    instaclone: entryPoint
   },
   output: {
     path: path.resolve(__dirname + '/build'),

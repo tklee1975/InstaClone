@@ -12,7 +12,7 @@ export default class IndexDefault extends Component {
     return (
       <div>
         <h1>IndexDefault</h1>
-        <RouteHandler />
+        {this.props.children}
       </div>
     )
   }

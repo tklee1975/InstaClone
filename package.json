@@ -10,7 +10,7 @@
     "prestart": "npm install",
     "postinstall": "npm install -g roco",
     "start": "npm run dev",
-    "dev": "webpack-dev-server --config webpack.config.js --port=4000",
+    "dev": "webpack-dev-server --config webpack.config.js --port=7770",
     "build": "NODE_ENV=production webpack --colors --progress --config ./webpack.config.js"
   },
   "keywords": [
@@ -32,7 +32,7 @@
     "file-loader": "^0.8.4",
     "history": "^1.12.6",
     "html-loader": "^0.3.0",
-    "json-loader": "^0.5.2",
+    "json-loader": "^0.5.3",
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
     "postcss-loader": "^0.7.0",

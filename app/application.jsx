@@ -11,4 +11,4 @@ import Router from 'react-router';
 
 import Routes from 'routes';
 
-ReactDOM.render(Routes, document.getElementById('website'));
+ReactDOM.render(Routes, document.getElementById('instaclone'));
