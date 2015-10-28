@@ -6,6 +6,8 @@ import { Link } from 'react-router';
 
 import { getPost } from 'actions/feedActions';
 
+import PhotoBox from 'Photo/Box/PhotoBox';
+
 
 export default class PhotoPost extends Component {
 
@@ -23,7 +25,8 @@ export default class PhotoPost extends Component {
   state = {
     content: {
       owner: {},
-      date: {}
+      date: {},
+      src: ''
     },
     error: null
   };
@@ -42,6 +45,10 @@ export default class PhotoPost extends Component {
     }
   }
 
+  handleLike() {
+    console.log('Like()?');
+  }
+
   /**
    * Render component PhotoPost
    */
@@ -51,7 +58,7 @@ export default class PhotoPost extends Component {
     return (
       <article className={CN(css.PhotoPost, `Variant-${this.props.variant}`)}>
         <header>
-          <img className="OwnerAvatar" src={post.owner.profilePictureUrl} />
+          <img className="OwnerAvatar" src={post.owner.profilePictureUrl} title={post.owner.fullName} />
           <div className="Owner">
             <Link to={`/${post.owner.username}/`}>{post.owner.username}</Link>
           </div>
@@ -60,10 +67,32 @@ export default class PhotoPost extends Component {
           </Link>
         </header>
         <div className="Media">
+          <PhotoBox dimensions={post.dimensions} caption={post.caption} src={post.src} onLike={this::this.handleLike} />
         </div>
-        <div className="Info">
-        </div>
+        {this.renderInfo()}
       </article>
+    );
+  }
+
+  renderInfo() {
+    let likes = null;
+
+    if (this.state.content.likes > 0) {
+      likes = (
+        <section className="Likes">
+          {`${this.state.content.likes} ${this.state.content.likes == 1 ? 'Like' : 'Likes'}`}
+        </section>
+      );
+    }
+    return (
+      <div className="Info">
+        {likes}
+        <section className="Comments">
+        </section>
+        <section className="WriteNewComment">
+          Write comment
+        </section>
+      </div>
     );
   }
 }
