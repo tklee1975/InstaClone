@@ -2,4 +2,57 @@
 
 
 :local(.PhotoPost)
+  background: white
+  border: 1px solid #edeeee
+  border-radius: 3px
   display: flex
+  flex-direction: column
+  margin-bottom: 60px
+  font-size: 14px
+  line-height: 18px
+
+  header
+    display: flex
+    height: 64px
+    padding: 14px 20px
+    box-sizing: border-box
+    align-items: center
+
+  .Media
+    display: flex
+
+  .Info
+    display: flex
+    padding: 0 24px
+
+  img.OwnerAvatar
+    display: flex
+    flex-basis: 30px
+    height: 30px
+    margin: -1px 10px -1px -5px
+    width: 30px
+    border-radius: 50%
+    background: #fbfbfb
+    border: 1px solid #cccfd0
+    box-sizing: border-box
+
+  .Owner
+    display: flex
+    flex: 1
+
+    a
+      text-decoration: none
+      color: #125688
+      display: inline-block
+      font-weight: 500
+      &:hover
+        color: #0d3c5f
+
+  a.Reference
+    text-decoration: none
+    font-weight: 500
+    color: gray
+
+
+
+
