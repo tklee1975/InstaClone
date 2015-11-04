@@ -24,9 +24,9 @@
     "href": function() { return "/p/" + this.code; },
     "id": "{{integer(100000000, 999999999999)}}",
     "isVideo": false,
-    "likedByViewer": false,
+    "likedByViewer": '{{bool()}}',
     "likers": [
-      '{{repeat(1,3)}}',
+      '{{repeat(1,9)}}',
   {
         "counts": {},
         "id": "{{integer(100000000, 999999999999)}}",

@@ -12,6 +12,25 @@ class ApplicationBase extends Component {
     children: React.PropTypes.any
   };
 
+  static childContextTypes = {
+    currentUser: React.PropTypes.shape({
+      id: React.PropTypes.number,
+      username: React.PropTypes.string,
+      profilePictureUrl: React.PropTypes.string,
+      fillName: React.PropTypes.string,
+      counts: React.PropTypes.object,
+      hasProfilePic: React.PropTypes.bool,
+    })
+  };
+
+  getChildContext() {
+    return {
+      currentUser: {
+        id: null // not authorized
+      }
+    };
+  }
+
   render() {
     return (
       <section className={css.ApplicationBase}>

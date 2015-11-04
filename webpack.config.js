@@ -48,6 +48,7 @@ var htmlLoader = [
 ];
 var fileLoader = ['file-loader?name=[path][name].[ext]'];
 var jsonLoader = ['json-loader'];
+var svgLoader = ['raw-loader'];
 
 if (DEBUG) {
   jsxLoader.push('react-hot');
@@ -121,6 +122,7 @@ module.exports = {
       { test: /\.styl$/,    loader: stylLoader + '?paths=' + path.resolve(__dirname, 'app/stylus') },
       { test: /\.html?$/,   loader: htmlLoader.join('!') },
       { test: /\.json?$/,   loader: jsonLoader.join('!') },
+      { test: /\.svg$/,     loader: svgLoader.join('!') }
     ]
   },
   resolve: {

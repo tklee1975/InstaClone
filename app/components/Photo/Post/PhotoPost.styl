@@ -76,6 +76,27 @@
         min-height: 70px
         align-items: center
 
+        figure
+          margin: 0
+          padding: 0
+          width: 44px
+          height: 44px
+          cursor: pointer
+
+          svg
+            padding: 6px
+            width: 32px
+            height: 32px
+
+            path
+              fill: transparent
+              stroke: #A6A8A8
+
+          &.Liked
+            svg path
+              fill: #F12938
+              stroke: none
+
       &.Comments
         .comment
           word-wrap: break-word

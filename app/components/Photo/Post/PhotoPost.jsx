@@ -1,10 +1,13 @@
 
 import CN from 'classnames';
 import css from './PhotoPost.styl';
-import React, { Component } from 'react';
 import { Link } from 'react-router';
+import React, { Component } from 'react';
+import iconHeart from 'images/heart.svg';
 
 import { getPost } from 'actions/feedActions';
+import { likePhotoByUser } from 'actions/photoActions';
+import { MergeObjects } from 'utils/tools';
 
 import PhotoBox from 'Photo/Box/PhotoBox';
 
@@ -22,15 +25,29 @@ export default class PhotoPost extends Component {
     variant: 'feed'
   };
 
+  static contextTypes = {
+    currentUser: React.PropTypes.shape({
+      id: React.PropTypes.number,
+      username: React.PropTypes.string,
+      profilePictureUrl: React.PropTypes.string,
+      fillName: React.PropTypes.string,
+      counts: React.PropTypes.object,
+      hasProfilePic: React.PropTypes.bool,
+    })
+  };
+
+
   state = {
     content: {
       owner: {},
       date: {},
       src: '',
-      comments: []
+      comments: [],
+      likedByViewer: false
     },
     error: null
   };
+
 
   componentDidMount() {
     if (this.props.post) {
@@ -46,9 +63,26 @@ export default class PhotoPost extends Component {
     }
   }
 
+
   handleLike() {
-    console.log('Like()?');
+    let nextLikes = this.state.content.likes;
+    if (this.state.content.likedByViewer) {
+      // if already liked
+      nextLikes--;
+    }
+    else {
+      // add liker
+      nextLikes++;
+    }
+
+    const nextPhotoObject = MergeObjects(this.state.content, {
+      likedByViewer: !this.state.content.likedByViewer,
+      likes: nextLikes
+    });
+
+    this.setState({ content: nextPhotoObject});
   }
+
 
   /**
    * Render component PhotoPost
@@ -75,21 +109,24 @@ export default class PhotoPost extends Component {
     );
   }
 
+
   renderInfo() {
     let likes = null;
+    const post = this.state.content;
 
-    if (this.state.content.likes > 0) {
+    if (post.likes > 0) {
       likes = (
         <section className="Likes">
-          {`${this.state.content.likes} ${this.state.content.likes == 1 ? 'Like' : 'Likes'}`}
+          {`${post.likes} ${post.likes == 1 ? 'Like' : 'Likes'}`}
         </section>
       );
     }
+
     return (
       <div className="Info">
         {likes}
         <section className="Comments">
-          {this.state.content.comments.map((comment) => {
+          {post.comments.map((comment) => {
             var lines = comment.text.split("\n");
 
             return (
@@ -101,7 +138,8 @@ export default class PhotoPost extends Component {
           })}
         </section>
         <section className="WriteNewComment">
-          Write comment
+          <figure onClick={this::this.handleLike} className={CN({ Liked: post.likedByViewer })}
+            dangerouslySetInnerHTML={{ __html: iconHeart }} />
         </section>
       </div>
     );
