@@ -30,7 +30,7 @@ export default class PhotoBox extends Component {
    */
   render() {
     return (
-      <figure className={CN(css.PhotoBox)}>
+      <figure className={CN(css.PhotoBox)} onDoubleClick={this.props.onLike}>
         <img src={this.props.src} />
       </figure>
     );
