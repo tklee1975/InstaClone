@@ -8,8 +8,9 @@
       {
         "id": '{{integer(100000000, 999999999999)}}',
         "postedAt": '{{integer(144500000, 1445999999)}}',
-        "text": '{{lorem(5, "words")}}',
-        "userId": "{{integer(100000, 99999999)}}"
+        "text": '{{lorem(9, "words")}}',
+        "userId": '{{integer(100000, 99999999)}}',
+        "userName": '{{lorem(1, "words")}}'
     }],
     "date": {
       "date": '{{date(new Date(2014, 0, 1), new Date(), "MM/dd/YYYY")}}',
@@ -20,7 +21,7 @@
             "shortYear": '{{integer(01, 15)}}',
         "time": "10:59pm"
     },
-      "href": function() { return "/p/" + this.code; },
+    "href": function() { return "/p/" + this.code; },
     "id": "{{integer(100000000, 999999999999)}}",
     "isVideo": false,
     "likedByViewer": false,
@@ -62,7 +63,7 @@
         "width": '{{integer(400, 1280)}}'
     },
     "commentsState": "MODEL_STABLE",
-      "commentsTotalCount": function() { return this.comments.length; },
+    "commentsTotalCount": function() { return this.comments.length; },
     "commentSaveIsInFlight": false,
     "pendingComment": "",
     "viewer": {

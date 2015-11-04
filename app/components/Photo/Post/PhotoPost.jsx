@@ -26,7 +26,8 @@ export default class PhotoPost extends Component {
     content: {
       owner: {},
       date: {},
-      src: ''
+      src: '',
+      comments: []
     },
     error: null
   };
@@ -88,6 +89,16 @@ export default class PhotoPost extends Component {
       <div className="Info">
         {likes}
         <section className="Comments">
+          {this.state.content.comments.map((comment) => {
+            var lines = comment.text.split("\n");
+
+            return (
+              <div className="comment" key={comment.id}>
+                <h1><Link to={`/${comment.userName}/`}>{comment.userName}</Link></h1>
+                {lines.map((line, num) => <span key={num}>{line}<br/></span>)}
+              </div>
+            );
+          })}
         </section>
         <section className="WriteNewComment">
           Write comment
